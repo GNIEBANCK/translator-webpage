@@ -1,0 +1,7 @@
+dist/
+build/
+node_modules/
+v8-compile-cache*
+package-lock.json
+.idea
+.vscode/
