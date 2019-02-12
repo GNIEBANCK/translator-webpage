@@ -26,8 +26,8 @@
 <script>
 let LanguageAbbreaves={
     'German':'de',
-    'Enlish':'en',
-    'Spanish':'sp',
+    'English':'en',
+    'Spanish':'es',
     'French':'fr'
 }
 export default {
