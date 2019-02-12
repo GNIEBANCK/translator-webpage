@@ -8,7 +8,7 @@
         <option>French</option>
         <option>German</option>
       </select>
-      <input type="text" class="form-control" placeholder="What would you like to translate?">
+      <input v-model="inputText" type="text" class="form-control" placeholder="What would you like to translate?">
     </div>
     <div class="form-group">
       <label>Target Language</label>
@@ -18,21 +18,39 @@
         <option>Spanish</option>
         <option>French</option>
       </select>
-      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Result">
+      <input  v-model="outputText" type="text" class="form-control" placeholder="Result">
     </div>
-    <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
+    <button class="btn btn-primary" @click="translate">Translate</button>
   </div>
 </template>
 <script>
+let LanguageAbbreaves={
+    'German':'de',
+    'Enlish':'en',
+    'Spanish':'sp',
+    'French':'fr'
+}
 export default {
   data: function() {
     return {
       source: "English",
-      target: "German"
+      target: "German",
+      inputText:"",
+      outputText:""
     };
   },
   methods: {
-    submit() {
+    translate() {
+        this.$http.post('http://localhost:8081/translate',
+            {
+                text: this.inputText,
+                source: LanguageAbbreaves[source],
+                target: LanguageAbbreaves[target]
+            })
+            .then(r=>{
+                return r.json();
+            })
+            .then(data=>this.outputText = data.result)
     }
   },
   computed: {}
