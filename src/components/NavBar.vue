@@ -2,11 +2,10 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <router-link to="/" class="navbar-brand">Home Page</router-link>
+                <router-link to="/" class="navbar-brand">Translator</router-link>
             </div>
-
             
-        </div><!-- /.container-fluid -->
+        </div>
     </nav>
 </template>
 
