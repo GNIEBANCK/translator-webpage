@@ -44,13 +44,13 @@ export default {
         this.$http.post('http://localhost:8081/translate',
             {
                 text: this.inputText,
-                source: LanguageAbbreaves[source],
-                target: LanguageAbbreaves[target]
+                source: LanguageAbbreaves[this.source],
+                target: LanguageAbbreaves[this.target]
             })
             .then(r=>{
                 return r.json();
             })
-            .then(data=>this.outputText = data.result)
+            .then(data=>this.outputText = data.result).catch((e)=>console.log(e));
     }
   },
   computed: {}
